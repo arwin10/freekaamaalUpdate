@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="3808182" started-at="2017-08-09T19:43:18Z" finished-at="2017-08-09T20:46:46Z">
+    <groups>
+    </groups>
+    <test name="FirefoxTest" duration-ms="3808182" started-at="2017-08-09T19:43:18Z" finished-at="2017-08-09T20:46:46Z">
+      <class name="OfferUpdate">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:OfferUpdate@6a5fc7f7]" name="setUp" is-config="true" duration-ms="3808169" started-at="2017-08-09T19:43:18Z" finished-at="2017-08-09T20:46:46Z">
+        </test-method>
+        <test-method status="PASS" signature="offerUpdate()[pri:0, instance:OfferUpdate@6a5fc7f7]" name="offerUpdate" duration-ms="3" started-at="2017-08-09T20:46:46Z" finished-at="2017-08-09T20:46:46Z">
+        </test-method>
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:OfferUpdate@6a5fc7f7]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-08-09T20:46:46Z" finished-at="2017-08-09T20:46:46Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

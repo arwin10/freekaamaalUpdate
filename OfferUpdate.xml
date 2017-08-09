@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="tests">
+
+    <test name="FirefoxTest">
+      <classes>
+             <class name="OfferUpdate"/>
+      </classes>
+   </test> 
+   
+  <!--  <test name="SafariTest">
+      <parameter name="browserName" value="Safari" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_Requestor_TestCases"/>
+      </classes>
+   </test> -->
+
+  <!--  <test name="ChromeTest">
+      <parameter name="browserName" value="Chrome" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_Requestor_TestCases"/>
+      </classes>
+   </test> -->
+
+  <!-- <test name="IETest">
+      <parameter name="browserName" value="InternetExplorer" />
+      <classes>
+            <class name="com.ldlapp.modules.LDL_Requestor_TestCases"/>
+      </classes>
+   </test> -->
+   
+ <!--  <test name="OperaTest">
+      <parameter name="browserName" value="Opera" />
+      <classes>
+            <class name="com.ldlapp.modules.LDL_Requestor_TestCases"/>
+      </classes>
+   </test> -->
+   
+   <!-- <test name="AndroidTest">
+      <parameter name="browserName" value="Android" />
+      <classes>
+            <class name="com.ldlapp.modules.LDL_Requestor_TestCases"/>
+      </classes>
+   </test> -->
+   
+ <!-- <test name="Initiator_FirefoxTest">
+      <parameter name="browserName" value="Firefox" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_Initiator_TestCases"/>
+      </classes>
+   </test> -->
+   
+  <!--<test name="TC_FirefoxTest">
+      <parameter name="browserName" value="Firefox" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_TC_TestCases"/>
+      </classes>
+   </test> -->
+   
+ <!--  <test name="TC_ChromeTest">
+      <parameter name="browserName" value="Chrome" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_TC_TestCases"/>
+      </classes>
+   </test> -->
+   
+  <!-- <test name="Requestor_FirefoxTest">
+      <parameter name="browserName" value="Firefox" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_Requestor_TestCases"/>
+      </classes>
+   </test> -->  
+   
+ <!--  <test name="DSS_FirefoxTest">
+      <parameter name="browserName" value="Firefox" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_DSS_TestCases"/>
+      </classes>
+   </test>  -->
+  
+<!-- <test name="DE_FirefoxTest">
+      <parameter name="browserName" value="Firefox" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_DE_TestCases"/>
+      </classes>
+   </test> -->
+   
+<!-- <test name="VCOPS_FirefoxTest">
+      <parameter name="browserName" value="Firefox" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_VCOPS_TestCases"/>
+      </classes>
+   </test> -->  
+   
+<!-- <test name="LASOPS_FirefoxTest">
+      <parameter name="browserName" value="Firefox" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_Ops_TestCases"/>
+      </classes>
+   </test> -->
+   
+<!-- <test name="TRCOLEAD_FirefoxTest">
+      <parameter name="browserName" value="Firefox" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_TRCOLEAD_TestCases"/>
+      </classes>
+   </test>  -->
+      
+   
+ <!--  <test name="IETest">
+      <parameter name="browserName" value="InternetExplorer" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_TC_TestCases"/>
+      </classes>
+   </test> -->
+   
+  <!--  <test name="Iphone5sTest">
+      <parameter name="browserName" value="Iphone 5s" />
+      <classes>
+             <class name="com.ldlapp.modules.LDL_Requestor_TestCases"/>
+      </classes>
+   </test>-->
+   
+
+  <!-- Test -->
+  
+</suite> <!-- Suite -->
