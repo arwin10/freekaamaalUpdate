@@ -9,6 +9,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 
 public class OfferUpdate {
 
@@ -38,10 +43,18 @@ public class OfferUpdate {
 
 		try {
 
-
-			System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");	 
+			System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
+			 System.out.println(" Executing on FireFox");
+	         String Node = "http://10.65.151.16:5566/wd/hub";
+	         DesiredCapabilities cap = DesiredCapabilities.firefox();
+	         cap.setBrowserName("firefox");
+	         
+	         driver = new RemoteWebDriver(new URL(Node), cap);
+	         // Puts an Implicit wait, Will wait for 10 seconds before throwing exception
+	         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+				 
 			//System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-			driver=new FirefoxDriver();
+			//driver=new FirefoxDriver();
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
 			dbconnectionutil.dbconnectSetup();

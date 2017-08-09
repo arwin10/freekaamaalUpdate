@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="148634" started-at="2017-08-09T15:51:46Z" finished-at="2017-08-09T15:54:14Z">
+  <suite name="Suite" duration-ms="607969" started-at="2017-08-09T17:19:30Z" finished-at="2017-08-09T17:29:38Z">
     <groups>
     </groups>
-    <test name="FirefoxTest" duration-ms="148634" started-at="2017-08-09T15:51:46Z" finished-at="2017-08-09T15:54:14Z">
+    <test name="FirefoxTest" duration-ms="607969" started-at="2017-08-09T17:19:30Z" finished-at="2017-08-09T17:29:38Z">
       <class name="OfferUpdate">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:OfferUpdate@482f8f11]" name="setUp" is-config="true" duration-ms="9673" started-at="2017-08-09T21:21:46Z" finished-at="2017-08-09T21:21:55Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:OfferUpdate@1b604f19]" name="setUp" is-config="true" duration-ms="17422" started-at="2017-08-09T22:49:30Z" finished-at="2017-08-09T22:49:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="offerUpdate()[pri:0, instance:OfferUpdate@482f8f11]" name="offerUpdate" duration-ms="136714" started-at="2017-08-09T21:21:55Z" finished-at="2017-08-09T21:24:12Z">
+        <test-method status="PASS" signature="offerUpdate()[pri:0, instance:OfferUpdate@1b604f19]" name="offerUpdate" duration-ms="588286" started-at="2017-08-09T22:49:47Z" finished-at="2017-08-09T22:59:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- offerUpdate -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:OfferUpdate@482f8f11]" name="tearDown" is-config="true" duration-ms="2234" started-at="2017-08-09T21:24:12Z" finished-at="2017-08-09T21:24:14Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:OfferUpdate@1b604f19]" name="tearDown" is-config="true" duration-ms="2245" started-at="2017-08-09T22:59:35Z" finished-at="2017-08-09T22:59:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
