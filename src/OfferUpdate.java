@@ -43,14 +43,15 @@ public class OfferUpdate {
 
 		try {
 
-			System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
+			 //System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
 			 System.out.println(" Executing on FireFox");
-	         String Node = "http://10.65.151.16:5566/wd/hub";
+	         //String Node = "http://10.65.150.241:5566/wd/hub";
+			 String Node="http://sdaas-gridlab.cisco.com:8080/wd/hub";
 	         DesiredCapabilities cap = DesiredCapabilities.firefox();
 	         cap.setBrowserName("firefox");
 	         
 	         driver = new RemoteWebDriver(new URL(Node), cap);
-	         // Puts an Implicit wait, Will wait for 10 seconds before throwing exception
+	          //Puts an Implicit wait, Will wait for 10 seconds before throwing exception
 	         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 				 
 			//System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
