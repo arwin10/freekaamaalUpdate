@@ -4,15 +4,21 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URI;
+import java.net.URLDecoder;
+import java.sql.Connection;
 
 
 public class OfferUpdate {
@@ -34,6 +40,9 @@ public class OfferUpdate {
 	String dealCategory="xxxx";
 	ArrayList<String> latestDeals = new ArrayList<String>();
 	ArrayList<String> finalPriceDeals = new ArrayList<String>();
+    Connection conn = null;
+
+
 	WebElement deal;
 	WebElement dealTime;
 	int scrollDown=300;
@@ -43,24 +52,41 @@ public class OfferUpdate {
 
 		try {
 
-			 //System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
-			 System.out.println(" Executing on FireFox");
-	         //String Node = "http://10.65.150.241:5566/wd/hub";
-			 String Node="http://sdaas-gridlab.cisco.com:8080/wd/hub";
-	         DesiredCapabilities cap = DesiredCapabilities.firefox();
-	         cap.setBrowserName("firefox");
-	         
-	         driver = new RemoteWebDriver(new URL(Node), cap);
-	          //Puts an Implicit wait, Will wait for 10 seconds before throwing exception
-	         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-				 
+
+			System.out.println(" Executing on FireFox");
+
+			/*****----------Grid Execution------------ ***/
+			//String Node = "http://10.65.150.241:5566/wd/hub";
+			//String Node="http://qsghub-nprd-lnx-01:8080/wd/hub";
+			//String Node="http://http://QNW-001-04-P:5555/wd/hub";
+			String Node="http://sdaas-gridlab.cisco.com:8080/wd/hub";
+			//String Node="http://172.17.0.2:4444/wd/hub";
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			cap.setPlatform(Platform.WINDOWS);
+			cap.setBrowserName("chrome");
+			driver = new RemoteWebDriver(new URL(Node), cap);
+			
+			 /************ Declaring and initialising the Headless Browser **********/
+			 //driver = new HtmlUnitDriver();
+			//driver.setJavascriptEnabled(true);
+			
+			 //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
+             //driver = new PhantomJSDriver();	
+			
+
+			/*****-------------Local Execution------------- ***/
 			//System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+			//System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
 			//driver=new FirefoxDriver();
+
+
+			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
+			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
-			dbconnectionutil.dbconnectSetup();
-
 			
+
+
 		}
 		catch(Exception e)
 		{
@@ -86,7 +112,7 @@ public class OfferUpdate {
 			System.out.println("Login to Desidime..."); 
 			driver.get(url);
 			WebDriverWait wait = new WebDriverWait(driver,60);
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li/div[@class='deal-box shadow']/div[contains(@class,'deal-off-percent')]/div[@class='getdeal ftl']/a")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[contains(@class,'deal-off-percent')]/div[@class='getdeal ftl']/a")));
 
 			/********Scrolling HomePage **********************/
 			for(int i=1,j=300;i<=1;i++,j+=300)
@@ -95,14 +121,14 @@ public class OfferUpdate {
 				System.out.println("Scrolling Down="+i);
 			}
 
-
-			List<WebElement> dealBoxShadow = driver.findElements(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li/div[@class='deal-box shadow']"));
-			List<WebElement> dealDescriptions = driver.findElements(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li/div[@class='deal-box shadow']/div[@class='deal-dsp']/a"));
-			List<WebElement> dealTimes = driver.findElements(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li/div[@class='deal-box shadow']/div[@class='promoblock']/div[@class='tgrid']/div[@class='tgrid-cell']/div[@class='promotime']/span"));
-			List<WebElement> dealStores = driver.findElements(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li/div[@class='deal-box shadow']/div[@class='cf']/div[@class='deal-store ftl']/a"));
-			List<WebElement> dealPrices = driver.findElements(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li/div[@class='deal-box shadow']/div[contains(@class,'deal-off-percent')]/div[@class='ftl dealpriceoff']"));
-			List<WebElement> dealImages = driver.findElements(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li/div[@class='deal-box shadow']/div[contains(@class,'deal-box-image fpd_prod_img')]/a/img"));
-			List<WebElement> dealLinks = driver.findElements(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li/div[@class='deal-box shadow']/div[contains(@class,'deal-off-percent')]/div[@class='getdeal ftl']/a"));
+			
+			List<WebElement> dealBoxShadow = driver.findElements(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']"));
+			List<WebElement> dealDescriptions = driver.findElements(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[@class='deal-dsp']/a"));
+			List<WebElement> dealTimes = driver.findElements(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[@class='promoblock']/div[@class='tgrid']/div[@class='tgrid-cell']/div[@class='promotime']/span"));
+			List<WebElement> dealStores = driver.findElements(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[@class='cf']/div[@class='deal-store ftl']/a"));
+			List<WebElement> dealPrices = driver.findElements(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[contains(@class,'deal-off-percent')]/div[@class='ftl dealpriceoff']"));
+			List<WebElement> dealImages = driver.findElements(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[contains(@class,'deal-box-image fpd_prod_img')]/a/img"));
+			List<WebElement> dealLinks = driver.findElements(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[contains(@class,'deal-off-percent')]/div[@class='getdeal ftl']/a"));
 
 			System.out.println("No. of DealsBox="+dealBoxShadow.size());
 			System.out.println("No. of Dealsdescription="+dealDescriptions.size());
@@ -111,23 +137,23 @@ public class OfferUpdate {
 			System.out.println("No. of dealPrices="+dealPrices.size());
 			System.out.println("No. of dealImages="+dealImages.size());
 			System.out.println("No. of dealLinks="+dealLinks.size());
-  
+
 
 			for(int i=0;i<dealDescriptions.size();i++)
 			{   
-              /*  if(i>16)
+				/*  if(i>16)
                 {   
                 	dbconnectionutil.implicitWait(2, driver);
                 	scrollDown+=600;
                 	dbconnectionutil.scrollDown(driver,scrollDown); 
                 	System.out.println("Scrolling Down to get more offers....");
-                	
+
                 }*/
-                
-                //deal=driver.findElement(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li["+i+"]/div[@class='deal-box shadow']/div[@class='deal-dsp']/a"));
-				deal=dbconnectionutil.getElementWithIndex(driver,i, ".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li/div[@class='deal-box shadow']/div[@class='deal-dsp']/a");
-                //dealTime=driver.findElement(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li["+i+"]/div[@class='deal-box shadow']/div[@class='promoblock']/div[@class='tgrid']/div[@class='tgrid-cell']/div[@class='promotime']/span"));
-                dealTime=dbconnectionutil.getElementWithIndex(driver,i, ".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li/div[@class='deal-box shadow']/div[@class='promoblock']/div[@class='tgrid']/div[@class='tgrid-cell']/div[@class='promotime']/span");
+
+				//deal=driver.findElement(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li["+i+"]/div[@class='deal-box shadow']/div[@class='deal-dsp']/a"));
+				deal=dbconnectionutil.getElementWithIndex(driver,i, ".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[@class='deal-dsp']/a");
+				//dealTime=driver.findElement(By.xpath(".//*[@id='deals-grid']/ul[@class='gridfix cf deals_grid']/li["+i+"]/div[@class='deal-box shadow']/div[@class='promoblock']/div[@class='tgrid']/div[@class='tgrid-cell']/div[@class='promotime']/span"));
+				dealTime=dbconnectionutil.getElementWithIndex(driver,i, ".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[@class='promoblock']/div[@class='tgrid']/div[@class='tgrid-cell']/div[@class='promotime']/span");
 				if(dealTime.getText().contains("hours")||dealTime.getText().contains("minutes")||dealTime.getText().contains("seconds"))
 				{   
 
@@ -139,15 +165,19 @@ public class OfferUpdate {
 					/********************Getting Offer Details *******************/
 
 					if(driver.findElements(By.xpath(".//*[@id='deal-detail-like-dislike-container']/div/div[1]/div[1]/h1")).size()>0)
-						{ dealName=driver.findElement(By.xpath(".//*[@id='deal-detail-like-dislike-container']/div/div[1]/div[1]/h1")).getText().replaceAll("[^a-zA-Z0-9&,_%\\s]", "");
-						  
-						}
-					else
-						dealName="NA";
-					System.out.println("Latest Deals="+dealName);
-					if(driver.findElements(By.xpath("//ul[@class='dalist']/li/span/a")).size()>0)
 					{ 
-						dealStore=driver.findElement(By.xpath("//ul[@class='dalist']/li/span/a")).getText();
+						dealName=driver.findElement(By.xpath(".//*[@id='deal-detail-like-dislike-container']/div/div[1]/div[1]/h1")).getText().replaceAll("[^a-zA-Z0-9&,_%\\s]", " ");
+
+					}
+					else
+					{ 
+						dealName="Deal Name not available";
+
+					}
+					System.out.println("Latest Deals="+dealName);
+					if(driver.findElements(By.xpath(".//*[@id='deal-detail-like-dislike-container']/div/div[3]/div[2]/div/div/a/span[2]")).size()>0)
+					{ 
+						dealStore=driver.findElement(By.xpath(".//*[@id='deal-detail-like-dislike-container']/div/div[3]/div[2]/div/div/a/span[2]")).getText();
 						if(dealStore.contains("Amazon"))
 							dealStore="@Amazon";
 						else if(dealStore.contains("Flipkart"))
@@ -158,7 +188,9 @@ public class OfferUpdate {
 							dealStore="@Others";
 					}
 					else
-						dealStore="NA";
+					{
+						dealStore="@Others";
+					}
 					System.out.println("Deal Store="+dealStore);
 					if(driver.findElements(By.xpath("//div[@class='dealprice']/span")).size()>0)
 						dealPrice=driver.findElement(By.xpath("//div[@class='dealprice']/span")).getText();
@@ -181,25 +213,43 @@ public class OfferUpdate {
 					if(driver.findElements(By.xpath("//ul[@class='dalist']/li[1]/span")).size()>0)
 						dealViews=driver.findElement(By.xpath("//ul[@class='dalist']/li[1]/span")).getText().replaceAll("[^0-9]", "");
 					else
-						dealViews="NA";	  
+						dealViews="101";	  
 					System.out.println("Deal Views="+dealViews);
 
 					if(driver.findElements(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).size()>0)
 					{
-						
+
 						if(dealStore.contains("Amazon"))
 						{ 
-							dealLink=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).getAttribute("href").concat("&tag=arwin10-21");
+							dealLink=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).getAttribute("href").concat("?ref_=as_li_ss_tl&tag=arwin10-21&camp=3638&creative=24630");
+							//dealLink=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).getAttribute("href");
+							dealLink=URLDecoder.decode(dealLink, "UTF-8");
 							newDealLink=dealLink.replace("https://links.desidime.com/?ref=deals&url=","");
+
 						}
 						else if(dealStore.contains("Flipkart"))
 						{
-							dealLink=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).getAttribute("href").concat("&affid=arsoftech");
+							//dealLink=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).getAttribute("href").concat("?affid=arsoftech");
+							dealLink=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).getAttribute("href");
+							if(dealLink.contains("sort"))
+							{
+								dealLink=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).getAttribute("href").concat("&affid=arsoftech");
+							}
+							else if(dealLink.contains("&pid"))
+							{
+								dealLink=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).getAttribute("href").concat("&affid=arsoftech");
+							}
+							else
+							{
+								dealLink=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).getAttribute("href").concat("?affid=arsoftech");
+							}
+							dealLink=URLDecoder.decode(dealLink, "UTF-8");
 							newDealLink=dealLink.replace("https://links.desidime.com/?ref=deals&url=","");
 						}
 						else
 						{
 							dealLink=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='image-wrap pos-relative']/div[1]/a")).getAttribute("href");
+							dealLink=URLDecoder.decode(dealLink, "UTF-8");
 							newDealLink=dealLink.replace("https://links.desidime.com/?ref=deals&url=","");
 						}
 					}
@@ -208,37 +258,41 @@ public class OfferUpdate {
 						newDealLink="NA";
 					}
 					System.out.println("Deal Link="+newDealLink);
-					
+
 					if(driver.findElements(By.xpath("//ul[@class='list-details']/li/a")).size()>0)
 						dealCategory=driver.findElement(By.xpath("//ul[@class='list-details']/li/a")).getText();
 					else
 						dealCategory="NA";	  
 					System.out.println("Deal Category="+dealCategory);
 
-					
+
 					if(driver.findElements(By.xpath("//div[@class='postblock']/div[@class='mainpost postcontent']")).size()>0)
 					{   
 						if(driver.findElements(By.xpath("//div[@class='postblock']/div[@class='mainpost postcontent']/p[1]")).size()>0)
-						dealDescp=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='mainpost postcontent']/p[1]")).getText()+"\n";
+							dealDescp=driver.findElement(By.xpath("//div[@class='postblock']/div[@class='mainpost postcontent']/p[1]")).getText()+"\n";
 						else
-					    dealDescp= "End of Description";	
+							dealDescp= "Deal Description not available";	
 						if(driver.findElements(By.xpath("//div[@class='postblock']/div[@class='mainpost postcontent']/p[2]")).size()>0)
-						dealDescp=dealDescp.concat(driver.findElement(By.xpath("//div[@class='postblock']/div[@class='mainpost postcontent']/p[2]")).getText())+"\n";
+							dealDescp=dealDescp.concat(driver.findElement(By.xpath("//div[@class='postblock']/div[@class='mainpost postcontent']/p[2]")).getText())+"\n";
 						else
-					    dealDescp= "End of Description";	
+							dealDescp= "Deal Description not availablen";	
 						if(driver.findElements(By.xpath("//div[@class='postblock']/div[@class='mainpost postcontent']/p[3]")).size()>0)
-						dealDescp=dealDescp.concat(driver.findElement(By.xpath("//div[@class='postblock']/div[@class='mainpost postcontent']/p[3]")).getText())+"\n";
+							dealDescp=dealDescp.concat(driver.findElement(By.xpath("//div[@class='postblock']/div[@class='mainpost postcontent']/p[3]")).getText())+"\n";
 						else
-						dealDescp= "End of Description";
+							dealDescp= "Deal Description not available";
 					}
 					else
 					{
-						dealDescp= "End of Description";
+						dealDescp= "Deal Description not available";
 					}
 					System.out.println("Deal Description="+dealDescp);
-					
-
-					dbconnectionutil.dbUpdate(dealName,dealStore,dealPrice,dealMRP,dealImage,newDealLink,dealViews,dealDescp,dealCategory);	 
+                    
+					conn=dbconnectionutil.dbconnectSetup();
+					if(conn!=null)
+					{
+					 dbconnectionutil.dbUpdate(conn,dealName,dealStore,dealPrice,dealMRP,dealImage,newDealLink,dealViews,dealDescp,dealCategory);
+					 dbconnectionutil.dbClose(conn);
+					}
 					driver.navigate().to(url); 
 
 				} 			
@@ -246,7 +300,7 @@ public class OfferUpdate {
 			}
 
 			System.out.println("Inserted All offers successfully.");
-			dbconnectionutil.dbClose();
+
 		}
 		catch(Exception e)
 		{
@@ -254,6 +308,7 @@ public class OfferUpdate {
 			System.out.println("Offers Insertion Failed.");
 			e.printStackTrace();
 		}
+	
 	}
 
 
