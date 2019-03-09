@@ -59,19 +59,19 @@ public class OfferUpdate {
 			//String Node = "http://10.65.150.241:5566/wd/hub";
 			//String Node="http://qsghub-nprd-lnx-01:8080/wd/hub";
 			//String Node="http://http://QNW-001-04-P:5555/wd/hub";
-			String Node="http://sdaas-gridlab.cisco.com:8080/wd/hub";
+			//String Node="http://sdaas-gridlab.cisco.com:8080/wd/hub";
 			//String Node="http://172.17.0.2:4444/wd/hub";
-			DesiredCapabilities cap = DesiredCapabilities.chrome();
-			cap.setPlatform(Platform.WINDOWS);
-			cap.setBrowserName("chrome");
-			driver = new RemoteWebDriver(new URL(Node), cap);
+			//DesiredCapabilities cap = DesiredCapabilities.chrome();
+			//cap.setPlatform(Platform.WINDOWS);
+			//cap.setBrowserName("chrome");
+			//driver = new RemoteWebDriver(new URL(Node), cap);
 			
 			 /************ Declaring and initialising the Headless Browser **********/
 			 //driver = new HtmlUnitDriver();
 			//driver.setJavascriptEnabled(true);
 			
-			 //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-             //driver = new PhantomJSDriver();	
+			System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
+            driver = new PhantomJSDriver();	
 			
 
 			/*****-------------Local Execution------------- ***/
