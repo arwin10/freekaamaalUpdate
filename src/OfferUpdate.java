@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -70,14 +71,17 @@ public class OfferUpdate {
 			 //driver = new HtmlUnitDriver();
 			//driver.setJavascriptEnabled(true);
 			
-			System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-            driver = new PhantomJSDriver();	
+			//System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
+            //driver = new PhantomJSDriver();	
 			
 
 			/*****-------------Local Execution------------- ***/
 			//System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
 			//System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
 			//driver=new FirefoxDriver();
+			
+			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		    driver = new ChromeDriver();
 
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
