@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="781100" started-at="2019-01-16T12:23:51Z" finished-at="2019-01-16T12:36:52Z">
+  <suite name="Default suite" duration-ms="7342401" started-at="2019-03-30T10:42:42Z" finished-at="2019-03-30T12:45:04Z">
     <groups>
     </groups>
-    <test name="FirefoxTest" duration-ms="781100" started-at="2019-01-16T12:23:51Z" finished-at="2019-01-16T12:36:52Z">
+    <test name="Default test" duration-ms="7342401" started-at="2019-03-30T10:42:42Z" finished-at="2019-03-30T12:45:04Z">
       <class name="OfferUpdate">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:OfferUpdate@59fa1d9b]" name="setUp" is-config="true" duration-ms="6855" started-at="2019-01-16T17:53:51Z" finished-at="2019-01-16T17:53:58Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:OfferUpdate@224edc67]" name="setUp" is-config="true" duration-ms="6634" started-at="2019-03-30T16:12:42Z" finished-at="2019-03-30T16:12:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="offerUpdate()[pri:0, instance:OfferUpdate@59fa1d9b]" name="offerUpdate" duration-ms="770745" started-at="2019-01-16T17:53:58Z" finished-at="2019-01-16T18:06:49Z">
+        <test-method status="PASS" signature="offerUpdate()[pri:0, instance:OfferUpdate@224edc67]" name="offerUpdate" duration-ms="7333977" started-at="2019-03-30T16:12:49Z" finished-at="2019-03-30T18:15:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- offerUpdate -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:OfferUpdate@59fa1d9b]" name="tearDown" is-config="true" duration-ms="3476" started-at="2019-01-16T18:06:49Z" finished-at="2019-01-16T18:06:52Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:OfferUpdate@224edc67]" name="tearDown" is-config="true" duration-ms="1729" started-at="2019-03-30T18:15:03Z" finished-at="2019-03-30T18:15:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- OfferUpdate -->
-    </test> <!-- FirefoxTest -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
