@@ -29,7 +29,7 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing=0 cellpadding=0 class="param">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">0</td><td class="numi">0.2 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">0</td><td class="numi">0.3 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <a id="summary"></a>
 <table cellspacing=0 cellpadding=0 class="passed">
@@ -39,26 +39,17 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <tr><th colspan="4">Default test &#8212; skipped (configuration methods)</th></tr>
 <tr class="skippedodd"><td rowspan="1">OfferUpdate<td><a href="#m2"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
 <tr><th colspan="4">Default test &#8212; skipped</th></tr>
-<tr class="skippedodd"><td rowspan="1">OfferUpdate<td><a href="#m3"><b>offerUpdate</b>  </a></td><td class="numi">1</td><td class="numi">4</td></tr>
+<tr class="skippedodd"><td rowspan="1">OfferUpdate<td><a href="#m3"><b>offerUpdate</b>  </a></td><td class="numi">1</td><td class="numi">37</td></tr>
 </table>
 <h1>Default test</h1>
 <a id="m1"></a><h2>OfferUpdate:setUp</h2>
 <div style="padding-left:3em">
-<p>org/openqa/selenium/io/CircularOutputStream</p>
-org.openqa.selenium.firefox.FirefoxBinary.&lt;init&gt;(FirefoxBinary.java:60)
-<br/>at org.openqa.selenium.firefox.FirefoxBinary.&lt;init&gt;(FirefoxBinary.java:56)
-<br/>at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:120)
-<br/>at OfferUpdate.setUp(OfferUpdate.java:80)
-<br/>25 lines not shown
-<p>Caused by org.openqa.selenium.io.CircularOutputStream</p>
-java.net.URLClassLoader.findClass(URLClassLoader.java:382)
-<br/>at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
-<br/>at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
-<br/>at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-<br/>at org.openqa.selenium.firefox.FirefoxBinary.&lt;init&gt;(FirefoxBinary.java:60)
-<br/>at org.openqa.selenium.firefox.FirefoxBinary.&lt;init&gt;(FirefoxBinary.java:56)
-<br/>at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:120)
-<br/>at OfferUpdate.setUp(OfferUpdate.java:80)
+<p>org.openqa.selenium.os.CommandLine.find(Ljava/lang/String;)Ljava/lang/String;</p>
+org.openqa.selenium.phantomjs.PhantomJSDriverService.findPhantomJS(PhantomJSDriverService.java:232)
+<br/>at org.openqa.selenium.phantomjs.PhantomJSDriverService.createDefaultService(PhantomJSDriverService.java:181)
+<br/>at org.openqa.selenium.phantomjs.PhantomJSDriver.&lt;init&gt;(PhantomJSDriver.java:105)
+<br/>at org.openqa.selenium.phantomjs.PhantomJSDriver.&lt;init&gt;(PhantomJSDriver.java:95)
+<br/>at OfferUpdate.setUp(OfferUpdate.java:76)
 <br/>25 lines not shown
 </div>
 <p class="totop"><a href="#summary">back to summary</a></p>
