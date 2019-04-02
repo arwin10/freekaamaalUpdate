@@ -74,7 +74,7 @@ public class OfferUpdate {
 			 //driver.setJavascriptEnabled(true);
 			
 		     //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-             driver = new PhantomJSDriver();	
+             //driver = new PhantomJSDriver();	
 			
 
 			/*****-------------Local Execution------------- ***/
@@ -83,9 +83,9 @@ public class OfferUpdate {
 			//driver=new FirefoxDriver();
 			
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-            //ChromeOptions chromeOptions = new ChromeOptions();
-            //chromeOptions.addArguments("--headless");
-		    //driver = new ChromeDriver();
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless");
+		    driver = new ChromeDriver();
 
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
