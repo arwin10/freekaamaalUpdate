@@ -84,9 +84,9 @@ public class OfferUpdate {
 			//System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
 			//driver=new FirefoxDriver();
 			
-			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--headless");
+			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+            //ChromeOptions chromeOptions = new ChromeOptions();
+            //chromeOptions.addArguments("--headless");
 		    driver = new ChromeDriver();
 
 
