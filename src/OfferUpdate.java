@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -26,8 +28,9 @@ import java.sql.Connection;
 
 public class OfferUpdate {
 
-	WebDriver driver;
-	DBConnectionUtil dbconnectionutil=new DBConnectionUtil();	;
+	//WebDriver driver;
+	PhantomJSDriver driver;
+	DBConnectionUtil dbconnectionutil=new DBConnectionUtil();
 	String userId="arinsark";       /*CEC Id */
 	String password="xxxx";   /*CEC Password*/
 	String url="https://www.desidime.com/";
@@ -71,10 +74,9 @@ public class OfferUpdate {
 			
 			 /************ Declaring and initialising the Headless Browser **********/
 			 //driver = new HtmlUnitDriver();
-			 //driver.setJavascriptEnabled(true);
-			
-		     //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-             //driver = new PhantomJSDriver();	
+			 //driver.setJavascriptEnabled(true);			
+		     System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
+             driver = new PhantomJSDriver();	
 			
 
 			/*****-------------Local Execution------------- ***/
@@ -83,9 +85,9 @@ public class OfferUpdate {
 			//driver=new FirefoxDriver();
 			
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--headless");
-		    driver = new ChromeDriver();
+//            ChromeOptions chromeOptions = new ChromeOptions();
+//            chromeOptions.addArguments("--headless");
+//		    driver = new ChromeDriver();
 
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
@@ -311,7 +313,8 @@ public class OfferUpdate {
 
 		}
 		catch(Exception e)
-		{
+		{  
+			Assert.assertTrue(false);
 			System.out.println("Exception occured:"+e);
 			System.out.println("Offers Insertion Failed.");
 			e.printStackTrace();
