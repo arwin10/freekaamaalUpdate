@@ -91,9 +91,9 @@ public class OfferUpdate {
 
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
-			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-			driver.manage().deleteAllCookies();
-			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			//driver.manage().deleteAllCookies();
+			//driver.manage().window().maximize();
 			
 
 
