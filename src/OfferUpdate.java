@@ -28,8 +28,8 @@ import java.sql.Connection;
 
 public class OfferUpdate {
 
-	//WebDriver driver;
-	PhantomJSDriver driver;
+	WebDriver driver;
+	//PhantomJSDriver driver;
 	DBConnectionUtil dbconnectionutil=new DBConnectionUtil();
 	String userId="arinsark";       /*CEC Id */
 	String password="xxxx";   /*CEC Password*/
@@ -59,7 +59,7 @@ public class OfferUpdate {
 		try {
 
 
-			System.out.println(" Executing on FireFox");
+			System.out.println(" Executing on Chrome");
 
 			/*****----------Grid Execution------------ ***/
 			//String Node = "http://10.65.150.241:5566/wd/hub";
@@ -75,8 +75,8 @@ public class OfferUpdate {
 			 /************ Declaring and initialising the Headless Browser **********/
 			 //driver = new HtmlUnitDriver();
 			 //driver.setJavascriptEnabled(true);			
-		     System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-             driver = new PhantomJSDriver();	
+//		     System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
+//             driver = new PhantomJSDriver();	
 			
 
 			/*****-------------Local Execution------------- ***/
@@ -84,10 +84,10 @@ public class OfferUpdate {
 			//System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
 			//driver=new FirefoxDriver();
 			
-			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-//            ChromeOptions chromeOptions = new ChromeOptions();
-//            chromeOptions.addArguments("--headless");
-//		    driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless");
+		    driver = new ChromeDriver();
 
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
