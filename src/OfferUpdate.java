@@ -75,7 +75,7 @@ public class OfferUpdate {
 			 /************ Declaring and initialising the Headless Browser **********/
 			 //driver = new HtmlUnitDriver();
 			 //driver.setJavascriptEnabled(true);			
-		     System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
+		     //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
              driver = new PhantomJSDriver();	
 			
 
