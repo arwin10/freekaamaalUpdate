@@ -75,8 +75,8 @@ public class OfferUpdate {
 			 /************ Declaring and initialising the Headless Browser **********/
 			 //driver = new HtmlUnitDriver();
 			 //driver.setJavascriptEnabled(true);			
-//		     System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-//             driver = new PhantomJSDriver();	
+		     System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
+             driver = new PhantomJSDriver();	
 			
 
 			/*****-------------Local Execution------------- ***/
@@ -87,7 +87,7 @@ public class OfferUpdate {
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
             //ChromeOptions chromeOptions = new ChromeOptions();
             //chromeOptions.addArguments("--headless");
-		    driver = new ChromeDriver();
+		    //driver = new ChromeDriver();
 
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
