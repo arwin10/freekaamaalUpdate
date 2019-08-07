@@ -28,8 +28,8 @@ import java.sql.Connection;
 
 public class OfferUpdate {
 
-	//WebDriver driver;
-	PhantomJSDriver driver;
+	WebDriver driver;
+	//PhantomJSDriver driver;
 	DBConnectionUtil dbconnectionutil=new DBConnectionUtil();
 	String userId="arinsark";       /*CEC Id */
 	String password="xxxx";   /*CEC Password*/
@@ -76,7 +76,7 @@ public class OfferUpdate {
 			 //driver = new HtmlUnitDriver();
 			 //driver.setJavascriptEnabled(true);			
 		     //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-                     driver = new PhantomJSDriver();	
+                     //driver = new PhantomJSDriver();	
 			
 
 			/*****-------------Local Execution------------- ***/
@@ -87,7 +87,7 @@ public class OfferUpdate {
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
             //ChromeOptions chromeOptions = new ChromeOptions();
             //chromeOptions.addArguments("--headless");
-		    //driver = new ChromeDriver();
+		    driver = new ChromeDriver();
 
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
