@@ -46,7 +46,7 @@ public class OfferUpdate {
 	String dealCategory="xxxx";
 	ArrayList<String> latestDeals = new ArrayList<String>();
 	ArrayList<String> finalPriceDeals = new ArrayList<String>();
-    Connection conn = null;
+	Connection conn = null;
 
 
 	WebElement deal;
@@ -71,30 +71,30 @@ public class OfferUpdate {
 			//cap.setPlatform(Platform.WINDOWS);
 			//cap.setBrowserName("chrome");
 			//driver = new RemoteWebDriver(new URL(Node), cap);
-			
-			 /************ Declaring and initialising the Headless Browser **********/
-			 //driver = new HtmlUnitDriver();
-			 //driver.setJavascriptEnabled(true);			
-		     //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-             driver = new PhantomJSDriver();	
-			
+
+			/************ Declaring and initialising the Headless Browser **********/
+			//driver = new HtmlUnitDriver();
+			//driver.setJavascriptEnabled(true);			
+			//System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
+			//driver = new PhantomJSDriver();	
+
 
 			/*****-------------Local Execution------------- ***/
 			//System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
 			//System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
 			//driver=new FirefoxDriver();
-			
+
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-            //ChromeOptions chromeOptions = new ChromeOptions();
-            //chromeOptions.addArguments("--headless");
-		    //driver = new ChromeDriver();
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.setHeadless(true);
+			driver = new ChromeDriver(chromeOptions);
 
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			//driver.manage().deleteAllCookies();
-			//driver.manage().window().maximize();
-			
+			driver.manage().deleteAllCookies();
+			driver.manage().window().maximize();
+
 
 
 		}
@@ -131,7 +131,7 @@ public class OfferUpdate {
 				System.out.println("Scrolling Down="+i);
 			}
 
-			
+
 			List<WebElement> dealBoxShadow = driver.findElements(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']"));
 			List<WebElement> dealDescriptions = driver.findElements(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[@class='deal-dsp']/a"));
 			List<WebElement> dealTimes = driver.findElements(By.xpath(".//*[@id='deals-grid']/div[@id='infinite-scrolling-list']/ul[@class='cf']/li/div[@class='deal-box shadow']/div[@class='promoblock']/div[@class='tgrid']/div[@class='tgrid-cell']/div[@class='promotime']/span"));
@@ -203,13 +203,26 @@ public class OfferUpdate {
 					}
 					System.out.println("Deal Store="+dealStore);
 					if(driver.findElements(By.xpath("//div[@class='dealprice']/span")).size()>0)
-						dealPrice=driver.findElement(By.xpath("//div[@class='dealprice']/span")).getText();
+					{
+						dealPrice=driver.findElement(By.xpath("//div[@class='dealprice']/span")).getText().replaceAll("[^\\\\dA-Za-z][a-zA-Z]", "");
+						if(dealPrice==" ")
+						{
+							dealPrice="0";	  
+						}
+					}
 					else
 						dealPrice="0";	  
 					System.out.println("Deal Price="+dealPrice);
 
 					if(driver.findElements(By.xpath("//div[@class='dealpercent']/span[@class='line-through']")).size()>0)
-						dealMRP=driver.findElement(By.xpath("//div[@class='dealpercent']/span[@class='line-through']")).getText();
+					{
+						dealMRP=driver.findElement(By.xpath("//div[@class='dealpercent']/span[@class='line-through']")).getText().replaceAll("[^\\\\dA-Za-z][a-zA-Z]", "");
+					   
+						if(dealMRP==" ")
+						{
+							dealMRP="0";
+						}
+					}
 					else
 						dealMRP="0";	  
 					System.out.println("Deal MRP="+dealMRP);
@@ -296,12 +309,12 @@ public class OfferUpdate {
 						dealDescp= "Deal Description not available";
 					}
 					System.out.println("Deal Description="+dealDescp);
-                    
+
 					conn=dbconnectionutil.dbconnectSetup();
 					if(conn!=null)
 					{
-					 dbconnectionutil.dbUpdate(conn,dealName,dealStore,dealPrice,dealMRP,dealImage,newDealLink,dealViews,dealDescp,dealCategory);
-					 dbconnectionutil.dbClose(conn);
+						dbconnectionutil.dbUpdate(conn,dealName,dealStore,dealPrice,dealMRP,dealImage,newDealLink,dealViews,dealDescp,dealCategory);
+						dbconnectionutil.dbClose(conn);
 					}
 					driver.navigate().to(url); 
 
@@ -319,7 +332,7 @@ public class OfferUpdate {
 			System.out.println("Offers Insertion Failed.");
 			e.printStackTrace();
 		}
-	
+
 	}
 
 
