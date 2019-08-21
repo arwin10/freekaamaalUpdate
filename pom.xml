@@ -32,14 +32,8 @@
   	<dependency>
   		<groupId>org.seleniumhq.selenium</groupId>
   		<artifactId>selenium-java</artifactId>
-  		<version>3.141.59</version>
-  	</dependency>
-	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
-       <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-chrome-driver</artifactId>
-        <version>3.141.59</version>
-       </dependency>
+  		<version>4.0.0-alpha-2</version>
+	  </dependency>
 
   	<dependency>
   		<groupId>mysql</groupId>
