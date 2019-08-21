@@ -77,18 +77,18 @@ public class OfferUpdate {
 			 //driver = new HtmlUnitDriver();
 			 //driver.setJavascriptEnabled(true);			
 		     //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-                      driver = new PhantomJSDriver();	
+                      //driver = new PhantomJSDriver();	
 			
 
 			/*****-------------Local Execution------------- ***/
 			//System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-			//System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
+		       // System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
 			//driver=new FirefoxDriver();
 
-			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-			//ChromeOptions chromeOptions = new ChromeOptions();
-			//chromeOptions.setHeadless(true);
-			//driver = new ChromeDriver(chromeOptions);
+			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.setHeadless(true);
+			driver = new ChromeDriver(chromeOptions);
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
