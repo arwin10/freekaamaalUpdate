@@ -77,7 +77,7 @@ public class OfferUpdate {
 			 //driver = new HtmlUnitDriver();
 			 //driver.setJavascriptEnabled(true);			
 		     //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-             //driver = new PhantomJSDriver();	
+                      //driver = new PhantomJSDriver();	
 			
 
 			/*****-------------Local Execution------------- ***/
@@ -85,7 +85,7 @@ public class OfferUpdate {
 			//System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
 			//driver=new FirefoxDriver();
 
-			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.setHeadless(true);
 			driver = new ChromeDriver(chromeOptions);
