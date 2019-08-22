@@ -86,12 +86,18 @@ public class OfferUpdate {
 			//driver=new FirefoxDriver();
 
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-			new DesiredCapabilities();
+			
                         String serverurl = "http://localhost:9515";
-                        //DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.setHeadless(true);
-		        driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
+			
+		        DesiredCapabilities cap = DesiredCapabilities.chrome();
+			cap.setPlatform(Platform.LINUX);
+			cap.setBrowserName("chrome");
+			driver = new RemoteWebDriver(new URL(serverurl), cap);
+
+		
+			//ChromeOptions chromeOptions = new ChromeOptions();
+			//chromeOptions.setHeadless(true);
+		        //driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
 			
 			//ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.setHeadless(true);
