@@ -87,9 +87,11 @@ public class OfferUpdate {
 
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			new DesiredCapabilities();
-                       String serverurl = "http://localhost:9515";
-                       DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-                       driver = new RemoteWebDriver(new URL(serverurl),capabilities);
+                        String serverurl = "http://localhost:9515";
+                        //DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.setHeadless(true);
+		        driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
 			
 			//ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.setHeadless(true);
