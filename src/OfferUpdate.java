@@ -87,15 +87,15 @@ public class OfferUpdate {
 
 			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			
-            //String serverurl = "http://localhost:9515";
+            String serverurl = "http://selenium-ch:4444";
 		
-			//ChromeOptions chromeOptions = new ChromeOptions();
-			//chromeOptions.setHeadless(true);
-		    //driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
-			
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.setHeadless(true);
-			driver = new ChromeDriver(chromeOptions);
+		    driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
+			
+			//ChromeOptions chromeOptions = new ChromeOptions();
+			//chromeOptions.setHeadless(true);
+			//driver = new ChromeDriver(chromeOptions);
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
