@@ -82,7 +82,7 @@ public class OfferUpdate {
 
 			/*****-------------Local Execution------------- ***/
 			//System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-		       // System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
+		    // System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
 			//driver=new FirefoxDriver();
 
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
@@ -90,7 +90,7 @@ public class OfferUpdate {
             String serverurl = "http://selenium-ch:4444";
 		
 			ChromeOptions chromeOptions = new ChromeOptions();
-			//chromeOptions.setHeadless(true);
+			chromeOptions.setHeadless(true);
 		    driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
 	
 			//ChromeOptions chromeOptions = new ChromeOptions();
