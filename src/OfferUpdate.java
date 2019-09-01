@@ -92,7 +92,7 @@ public class OfferUpdate {
 			//ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.setHeadless(true);
 		    //driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
-			
+	
 			//ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.setHeadless(true);
 			//driver = new ChromeDriver(chromeOptions);
