@@ -87,10 +87,10 @@ public class OfferUpdate {
 
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			
-            String serverurl = "http://selenium-ch:4444";
+            String serverurl = "http://selenium-ch:4444/wd/hub";
 		
 			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.setHeadless(true);
+			//chromeOptions.setHeadless(true);
 		    driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
 	
 			//ChromeOptions chromeOptions = new ChromeOptions();
