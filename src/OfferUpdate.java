@@ -76,8 +76,8 @@ public class OfferUpdate {
 			 /************ Declaring and initialising the Headless Browser **********/
 			 //driver = new HtmlUnitDriver();
 			 //driver.setJavascriptEnabled(true);			
-		     System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-             driver = new PhantomJSDriver();	
+		     //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
+             //driver = new PhantomJSDriver();	
 			
 
 			/*****-------------Local Execution------------- ***/
@@ -87,11 +87,11 @@ public class OfferUpdate {
 
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			
-            //String serverurl = "http://selenium-ch:4444";
+            String serverurl = "http://selenium-ch:4444";
 		
-			//ChromeOptions chromeOptions = new ChromeOptions();
+			ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.setHeadless(true);
-		    //driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
+		    driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
 	
 			//ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.setHeadless(true);
