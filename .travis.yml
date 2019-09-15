@@ -25,7 +25,7 @@ before_install:
 #- sudo cp geckodriver /usr/bin
 #- phantomjs --webdriver=4444 &
 - # start your web application and listen on `localhost`
-- google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+- google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://www.desidime.com
 script: mvn clean test
 #script: phantomjs testrunner.js
 notifications:
