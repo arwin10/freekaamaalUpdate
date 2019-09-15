@@ -22,7 +22,7 @@ before_install:
 #- sudo cp geckodriver /usr/bin
 #- phantomjs --webdriver=4444 &
 script: mvn clean test
-script: phantomjs testrunner.js
+#script: phantomjs testrunner.js
 notifications:
   email:
     recipients:
