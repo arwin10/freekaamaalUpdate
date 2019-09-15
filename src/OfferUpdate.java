@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -77,7 +78,13 @@ public class OfferUpdate {
 			 //driver = new HtmlUnitDriver();
 			 //driver.setJavascriptEnabled(true);			
 		     //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
-             driver = new PhantomJSDriver();	
+             //driver = new PhantomJSDriver();	
+			
+			String[] cli_args = new String[]{ "--ignore-ssl-errors=true" };
+			DesiredCapabilities caps = DesiredCapabilities.phantomjs();
+			caps.setCapability( PhantomJSDriverService.PHANTOMJS_CLI_ARGS, cli_args );
+			caps.setCapability( PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "/tmp/config/bin/phantomjs");
+			driver =  new PhantomJSDriver( caps );
 			
 
 			/*****-------------Local Execution------------- ***/
