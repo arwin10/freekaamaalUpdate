@@ -5,7 +5,7 @@ jdk:
 - oraclejdk8
 dist: trusty
 addons:
- chrome: "74.0"
+ chrome: beta
 #addons:
 #  firefox: "60.0"
 before_install:
