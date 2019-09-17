@@ -80,13 +80,6 @@ public class OfferUpdate {
 		     //System.setProperty("phantomjs.binary.path", "phantomjs.exe");		
              //driver = new PhantomJSDriver();	
 			
-			String[] cli_args = new String[]{ "--ignore-ssl-errors=true" };
-			DesiredCapabilities caps = DesiredCapabilities.phantomjs();
-			caps.setCapability( PhantomJSDriverService.PHANTOMJS_CLI_ARGS, cli_args );
-			caps.setCapability( PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "/tmp/config/bin/phantomjs");
-			driver =  new PhantomJSDriver( caps );
-			
-
 			/*****-------------Local Execution------------- ***/
 			//System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
 		    // System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
@@ -100,9 +93,9 @@ public class OfferUpdate {
 			//chromeOptions.setHeadless(true);
 		    //driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
 	
-			//ChromeOptions chromeOptions = new ChromeOptions();
-		    //chromeOptions.setHeadless(true);
-			//driver = new ChromeDriver(chromeOptions);
+			ChromeOptions chromeOptions = new ChromeOptions();
+		    chromeOptions.setHeadless(true);
+			driver = new ChromeDriver(chromeOptions);
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
