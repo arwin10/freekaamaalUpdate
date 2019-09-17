@@ -83,7 +83,7 @@ public class OfferUpdate {
 			/*****-------------Local Execution------------- ***/
 			//System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
 		    // System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
-			//driver=new FirefoxDriver();
+			driver=new FirefoxDriver();
 
 			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			
@@ -93,9 +93,9 @@ public class OfferUpdate {
 			//chromeOptions.setHeadless(true);
 		    //driver = new RemoteWebDriver(new URL(serverurl),chromeOptions);
 	
-			ChromeOptions chromeOptions = new ChromeOptions();
-		    chromeOptions.setHeadless(true);
-			driver = new ChromeDriver(chromeOptions);
+			//ChromeOptions chromeOptions = new ChromeOptions();
+		    //chromeOptions.setHeadless(true);
+			//driver = new ChromeDriver(chromeOptions);
 
 			//Puts an Implicit wait, Will wait for 10 seconds before throwing exception
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
