@@ -85,7 +85,7 @@ public class OfferUpdate {
 		    // System.setProperty("webdriver.firefox.bin", "C:\\FirefoxPortable45ESR\\FirefoxPortable.exe");
 			//driver=new FirefoxDriver();
 
-			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			
             //String serverurl = "http://selenium-ch:4444/wd/hub";
 		
