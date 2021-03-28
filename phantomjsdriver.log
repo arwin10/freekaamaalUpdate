@@ -336,3 +336,13 @@ eEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"
 [INFO  - 2019-09-21T08:18:04.310Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 55942900-dc48-11e9-9cb4-6fbe76f08198
 [INFO  - 2019-09-21T08:23:03.497Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
 [INFO  - 2019-09-21T08:26:32.594Z] ShutdownReqHand - _handle - About to shutdown
+[INFO  - 2021-03-28T06:10:00.102Z] GhostDriver - Main - running on port 21517
+[INFO  - 2021-03-28T06:10:00.743Z] Session [3aa9ebe0-8f8c-11eb-93bb-d50f517ef318] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2021-03-28T06:10:00.743Z] Session [3aa9ebe0-8f8c-11eb-93bb-d50f517ef318] - page.customHeaders:  - {}
+[INFO  - 2021-03-28T06:10:00.743Z] Session [3aa9ebe0-8f8c-11eb-93bb-d50f517ef318] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"windows-10-32bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2021-03-28T06:10:00.744Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 3aa9ebe0-8f8c-11eb-93bb-d50f517ef318
+[ERROR - 2021-03-28T06:10:06.482Z] Session [3aa9ebe0-8f8c-11eb-93bb-d50f517ef318] - page.onError - msg: TypeError: undefined is not a constructor (evaluating 'new b')
+[ERROR - 2021-03-28T06:10:06.482Z] Session [3aa9ebe0-8f8c-11eb-93bb-d50f517ef318] - page.onError - stack:
+  (anonymous function) (https://cdn.ampproject.org/rtv/012103020108001/amp4ads-v0.js:63)
+  (anonymous function) (https://cdn.ampproject.org/rtv/012103020108001/amp4ads-v0.js:63)
+[INFO  - 2021-03-28T06:10:14.104Z] ShutdownReqHand - _handle - About to shutdown
